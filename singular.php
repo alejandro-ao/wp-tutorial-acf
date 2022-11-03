@@ -19,8 +19,11 @@ get_header();
 		<div class="inner">
 			<h1 class="major"><?php the_title() ?></h1>
 			<span class="image fit"><img src="<?= get_the_post_thumbnail_url() ?>" alt="" /></span>
+			<strong>Preparation time: </strong> <?= get_field("preparation_time") ?>
+			<h2>Ingredients</h2>
+			<?= get_field("ingredients") ?>
 			<?php the_content() ?>
-		</div>	
+		</div>
 	</section>
 
 </div>

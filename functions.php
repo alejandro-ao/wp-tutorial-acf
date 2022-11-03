@@ -196,3 +196,22 @@ function register_main_menu()
 	register_nav_menu("main-menu", "Main Hyperspace Menu");
 }
 add_action("init", "register_main_menu");
+
+
+add_action('acf/init', 'my_general_settings');
+function my_general_settings()
+{
+
+	// Check function exists.
+	if (function_exists('acf_add_options_page')) {
+
+		// Register options page.
+		$option_page = acf_add_options_page(array(
+			'page_title'    => __('Theme General Settings'),
+			'menu_title'    => __('Theme Settings'),
+			'menu_slug'     => 'theme-general-settings',
+			'capability'    => 'edit_posts',
+			'redirect'      => false
+		));
+	}
+}

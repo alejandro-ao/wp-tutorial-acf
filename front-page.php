@@ -20,12 +20,19 @@
     <!-- Intro -->
     <section id="intro" class="wrapper style1 fullscreen fade-up">
         <div class="inner">
-            <h1>Hyperspace</h1>
-            <p>Just another fine responsive site template designed by <a href="http://html5up.net">HTML5 UP</a><br />
-                and released for free under the <a href="http://html5up.net/license">Creative Commons</a>.</p>
-            <ul class="actions">
-                <li><a href="#one" class="button scrolly">Learn more</a></li>
-            </ul>
+            <h1><?= get_field("title", "option") ?? "" ?></h1>
+            <p><?= get_field("subtitle", "option") ?? "" ?></p>
+            <?php
+            // echo "<pre>";
+            // echo var_export($button_link, true);
+            // echo "</pre>";
+            $button_link = get_field("button_link", "option");
+            ?>
+            <?php if (is_array($button_link)) : ?>
+                <ul class="actions">
+                    <li><a href="<?= $button_link["url"] ?>" target="<?= $button_link["target"] ?>" class="button scrolly"><?= $button_link["title"] ?></a></li>
+                </ul>
+            <? endif; ?>
         </div>
     </section>
 
